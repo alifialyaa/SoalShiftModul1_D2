@@ -28,4 +28,4 @@ Langkah-langkah:
        14 14 14 2 * /bin/bash/ /Home/ALIFI/SISOP/Soal/nature/nomer_1.sh
        14 14 * 2 5 /bin/bash/ /Home/ALIFI/SISOP/Soal/nature/nomer_1.sh
        ```
-   ~ Kendala: crontab tidak berjalan
+   - Kendala: crontab tidak berjalan
