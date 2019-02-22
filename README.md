@@ -20,9 +20,9 @@ Langkah-langkah:
 		* Penjelasan:
 		    + `no=1` menyatakan variabel yang akan digunakan untuk iterasi.
 	    	+ `for foto in * .jpg` menyatakan dalam kondisi apa loop akan aktif.
-				+ `base64 -d $foto` untuk mendecrypt foto-foto pada file.
-				+ `xxd -r > 'pict'$no'.jpg'` dilakukan untuk membuat hexdump dan mereverse, dan dimasukkan ke dalam file baru bernama file(sequence i).jpg.
-				+ `let no++` akan menambah variabel i di setiap looping.
+			+ `base64 -d $foto` untuk mendecrypt foto-foto pada file.
+			+ `xxd -r > 'pict'$no'.jpg'` dilakukan untuk membuat hexdump dan mereverse, dan dimasukkan ke dalam file baru bernama file(sequence i).jpg.
+			+ `let no++` akan menambah variabel i di setiap looping.
    - Buat cron job dengan menambahkan
        ```
        14 14 14 2 * /bin/bash/ /Home/ALIFI/SISOP/Soal/nature/nomer_1.sh
