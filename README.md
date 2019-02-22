@@ -22,4 +22,4 @@ Langkah-langkah:
 	    	+ `for foto in * .jpg` menyatakan dalam kondisi apa loop akan aktif.
 				+ `base64 -d $foto` untuk mendecrypt foto-foto pada file.
 				+ `xxd -r > 'pict'$i'.jpg'` dilakukan untuk membuat hexdump dan mereverse, dan dimasukkan ke dalam file baru bernama file(sequence i).jpg.
-				
+				+ `let i++` akan menambah variabel i di setiap looping.
