@@ -23,3 +23,9 @@ Langkah-langkah:
 				+ `base64 -d $foto` untuk mendecrypt foto-foto pada file.
 				+ `xxd -r > 'pict'$no'.jpg'` dilakukan untuk membuat hexdump dan mereverse, dan dimasukkan ke dalam file baru bernama file(sequence i).jpg.
 				+ `let no++` akan menambah variabel i di setiap looping.
+   - Buat cron job dengan menambahkan
+       ```
+       14 14 14 2 * /bin/bash/ /Home/ALIFI/SISOP/Soal/nature/nomer_1.sh
+       14 14 * 2 5 /bin/bash/ /Home/ALIFI/SISOP/Soal/nature/nomer_1.sh
+       ```
+   ~ Kendala: crontab tidak berjalan
