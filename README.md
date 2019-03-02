@@ -120,3 +120,26 @@ echo $(</dev/urandom tr -dc "[:alnum:]" | head -c12) > "$name$i".txt
 ```
 memasukan string random berisi semua angka dan karakter "[:alnum:]" sepanjang 12 angka atau karakter "head -12" lalu dimasukan ">" ke dalam file bernama "$name$i".txt atau password'i'.txt
 
+5. Buatlah sebuah script bash untuk menyimpan record dalam syslog yang memenuhi
+kriteria berikut:
+   * Tidak mengandung string “sudo”, tetapi mengandung string “cron”, serta buatlah pencarian stringnya tidak bersifat case sensitive, sehingga huruf kapital atau tidak, tidak menjadi masalah.
+   - Jumlah field (number of field) pada baris tersebut berjumlah kurang dari 13.
+   + Masukkan record tadi ke dalam file logs yang berada pada direktori/home/[user]/modul1.
+   * Jalankan script tadi setiap 6 menit dari menit ke 2 hingga 30, contoh 13:02, 13:08, 13:14, dst.
+   
+Langkah-langkah:
+* Buat script untuk memilih record dalam syslog dan menyimpannya di syslog.log
+   ```
+      #!usr/bin/awk/
+      awk 'BEGIN{IGNORECASE = 1} /cron/ && !/sudo/' /var/log/syslog | awk 'NF < 13' > /home/alifi/modul1/syslog.log
+   ```  
+   Penjelasan:
+           * `awk 'BEGIN{IGNORECASE = 1} /cron/ && !/sudo/' /var/log/syslog` digunakan untuk mencari record yang mengandung cron dan tidak mengandung sudo, dan tidak memperhatikan case (insensitive case) dari /var/log/syslog
+	 * `awk 'NF < 13' > /home/alifi/modul1/syslog.log` mengambil record yang memiliki jumlah field (Number of Field) yang kurang dari 13 field, dan dimasukkan ke /home/alifi/modul1/syslog.log
++ Buat cron job
+```
+2-30/6 * * * * bash ~/modul1/nomer5.sh
+```
+   Penjelasan:
+       - `2-30` digunakan untuk memberitahukan bahwa cron job akan bekerja mulai menit kedua hingga tiga puluh tiap jamnya.
+   - `6 * * * *` berarti cron job dilaksanakan tiap 6 menit.
